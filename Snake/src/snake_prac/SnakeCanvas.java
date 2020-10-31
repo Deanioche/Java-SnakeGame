@@ -27,12 +27,9 @@ public class SnakeCanvas extends Canvas implements KeyListener {
 	public Color headColor;
 	private int direction = 0;
 
-	// 게임필드 범위를 x방향 85칸, y방향 70칸으로 설정
-	// 처음엔 움직이지 않는 상태로 시작
+	public int moveSpeed = 100; 		// 뱀 이동 속도, 스레드 반복속도를 조절
 
-	public int moveSpeed = 100; // 뱀 이동 속도, 1초에 2칸, 난이도에 따라 조절
-
-	boolean gameRunning = false; // 게임 진행 유무
+	boolean gameRunning = false; 		// 게임 진행 유무
 
 	Coordinate headCoordinate;			// 좌표클래스
 
@@ -44,6 +41,15 @@ public class SnakeCanvas extends Canvas implements KeyListener {
 	String chatBalloon;				// 말풍선에 들어갈 텍스트
 	SnakeDTO dto; 					// 서버가 없으므로 dto를 여기에 생성
 
+	
+	/*
+	   	게임필드 범위를 x방향 85칸, y방향 70칸으로 설정
+	 	처음엔 움직이지 않는 상태로 시작
+	 	
+	 */
+	
+	
+	
 	// 생성자
 	public SnakeCanvas(SnakeClient sClient) {
 		this.sClient = sClient;

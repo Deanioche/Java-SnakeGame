@@ -57,12 +57,6 @@ public class SnakeSetting extends JFrame implements ActionListener {
 
 		JPanel panel4 = new JPanel();
 
-//		Color c = new Color((int) (Math.random() * 105) + 150, (int) (Math.random() * 105) + 150,
-//				(int) (Math.random() * 105) + 150);
-//		btn_RandomColor = new JButton("Color");
-//		btn_RandomColor.setBackground(c);
-//		panel4.add(btn_RandomColor);
-
 		btn = new JButton("Connect");
 		panel4.add(btn);
 

@@ -36,17 +36,17 @@ public class SnakeClient extends JFrame implements ActionListener { // Runnable
 	private JTextArea textArea;
 	private JTextField textField;
 	private JButton btn_send;
-
-//	private Socket socket;
-//	private ObjectOutputStream oos;
-//	private ObjectInputStream ois;
-
+	
+/*
+	private Socket socket;
+	private ObjectOutputStream oos;
+	private ObjectInputStream ois;
+*/
+	
 	private JTable scoreTable; // 차트식으로 윗줄 닉네임 아랫줄 점수 표시
 
 	public DefaultTableModel model;
 	public JButton btn_Start;
-
-//	private String[] settingInfo = new String[3]; // ip, port, nickname
 
 	public boolean isOnline = false;
 
@@ -117,20 +117,20 @@ public class SnakeClient extends JFrame implements ActionListener { // Runnable
 			public void windowClosing(WindowEvent e) {
 
 				System.exit(0);
+/*
+			try {
+				// EXIT 프로토콜을 서버로 보낸다.
+				SnakeDTO dto = new SnakeDTO();
+				dto.setCommand(Notice.EXIT);
+					oos.writeObject(dto);
+					oos.flush();
 
-//				try {
-//					// EXIT 프로토콜을 서버로 보낸다.
-//					SnakeDTO dto = new SnakeDTO();
-//					dto.setCommand(Notice.EXIT);
-////					oos.writeObject(dto);
-////					oos.flush();
-//
-//				} catch (IOException e1) {
-//					e1.printStackTrace();
-//				}
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+*/
 			}
 		});
-
 		setVisible(true);
 		new SnakeSetting(this);
 
@@ -150,8 +150,8 @@ public class SnakeClient extends JFrame implements ActionListener { // Runnable
 	 * 
 	 * // 아이피 초기값이 수정되면 접속
 	 * 
-	 * // ip, port 입력해서 소켓 생성 socket = new Socket(settingInfo[0],
-	 * Integer.parseInt(settingInfo[1])); System.out.println("소켓 생성 완료");
+	 * // ip, port 입력해서 소켓 생성 socket = new Socket(ip,
+	 * Integer.parseInt(port)); System.out.println("소켓 생성 완료");
 	 * 
 	 * // 클라이언트 닉네임 저장 nickname = settingInfo[2];
 	 * 
@@ -265,29 +265,24 @@ public class SnakeClient extends JFrame implements ActionListener { // Runnable
 	// 세팅값을 한번에 받는 Setter
 	public void setIp_Port_Name(String ip, String port, String name) {
 
-//		settingInfo[0] = ip;
-//		settingInfo[1] = port;
+//		ip = ip;
+//		port = port;
 		nickname = name;
 		System.out.println("setIp_Port_Name : 메소드 동작");
 
 	}
 
-	/*
-	 * // 접속 여부 확인 메소드 public boolean getIsOnline() { return this.isOnline; }
-	 */
 
 	// Setter Getter
 	public String getNickname() {
 		return nickname;
 	}
 
-	/*
-	 * public ObjectOutputStream getOos() { return oos; }
+	/*	# 캔버스에서도 oos 쓸수 있도록
+	 * 	public ObjectOutputStream getOos() { return oos; }
 	 * 
-	 * public ObjectInputStream getOis() { return ois; }
-	 * 
-	 * public List<Coordinate> getList_playerInfo() { return list_playerInfo; }
-	 * 
+	 *  # 접속 여부 확인 
+	 *   public boolean getIsOnline() { return this.isOnline; }
 	 */
 
 	// main
