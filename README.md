@@ -1,2 +1,2 @@
 # Java_Snake
-Java Swing
+built with Java Swing
